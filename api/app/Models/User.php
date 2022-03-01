@@ -41,4 +41,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function getUsernameAttribute() {
+        return "u/". $this->attributes['username'];
+    }
+
+    public function getAvatarAttribute() {
+        return "https://www.gravatar.com/avatar/" . md5($this->attributes['email']);
+    }
+// Eloquent: Mutators & Casting
+    public function setPasswordAttribute($textPassword) {
+        $this->attributes['password'] = bcrypt($textPassword);
+    }
 }
