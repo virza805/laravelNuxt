@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Models\User;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
@@ -77,6 +78,21 @@ class AuthController extends Controller
 
         return [
             'message' => 'Profile updated'
+        ];
+    }
+    /**
+     * Update Current user Password
+     * @param UpdatePasswordRequest $request
+     * @return array
+    */
+
+    public function updatePassword(UpdatePasswordRequest $request) {
+        \auth()->user()->update([
+            'password' => $request->password
+        ]);
+
+        return [
+            'message' => 'Password updated'
         ];
     }
 }
