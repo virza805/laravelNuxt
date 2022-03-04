@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'reddit-client',
+    titleTemplate: '%s - Reddit',
     htmlAttrs: {
       lang: 'en'
     },
@@ -12,12 +12,14 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap' }
+
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
+  css: ["~/assets/styles/app.scss"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -29,13 +31,26 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxt/postcss8',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
+  modules: ['@nuxtjs/axios'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+  },
+
+
+  axios: {
+    // baseURL: "http://api.test",
+    baseURL: "http://127.0.0.1:8000",
   }
 }

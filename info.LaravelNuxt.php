@@ -2,7 +2,11 @@
 # https://github.com/kingRayhan/laranuxt-reddit-clone/blob/ep13/api/app/Rules/ConfirmOldPassword.php
 
 
-##### ++ Laravel Api ++ #####
+##### ++ Laravel Api ++ ##### 
+# My API => https://documenter.getpostman.com/view/18110748/UVktqtgg#dfdddc35-cd8d-4394-8010-8636d2b50197
+
+
+
 // php artisan serve => run for || laragon.org -> for test link
 # laravel new api
 # cd api
@@ -89,10 +93,21 @@ Password::sendResetLink(['email' => 'virza805@gmail.com'])
 
 # ====== => >=< Client Site vueNuxt  >=< <= ======
 
+# npm run dev => 
 #  => 24 - Nuxt config and enable sass support | Laranuxt Ninja
+# Markup => https://gist.github.com/kingRayhan/beac5acdeef5bd4ff7f04980d768f436#file-1-readme-md 
 # npm init nuxt-app reddit-client => 
 # cd reddit-client => 
 # npm run dev => 
+# npm install --save-dev sass sass-loader@10 -D => for scss
+# npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8 => https://tailwindcss.com/docs/guides/nuxtjs
+# npx tailwindcss init => 2. Install Tailwind CSS
+#  => 
+# npm install @nuxtjs/axios => https://axios.nuxtjs.org/setup
+#  => 30 Create a global toast component with vuex | Laranuxt Ninja
+#  => 
+#  => 
+#  => 
 #  => 
 #  => 
 #  => 
