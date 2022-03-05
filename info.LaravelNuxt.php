@@ -104,7 +104,14 @@ Password::sendResetLink(['email' => 'virza805@gmail.com'])
 # npx tailwindcss init => 2. Install Tailwind CSS
 #  => 
 # npm install @nuxtjs/axios => https://axios.nuxtjs.org/setup
-#  => 30 Create a global toast component with vuex | Laranuxt Ninja
+/*
+auth configaration  
+
+npm install --save-exact @nuxtjs/auth-next => https://auth.nuxtjs.org/guide/setup
+npm install @nuxtjs/axios
+
+*/
+#  => 33 Nuxt Middleware Intro | Laranuxt Ninja
 #  => 
 #  => 
 #  => 

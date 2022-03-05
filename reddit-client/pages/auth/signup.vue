@@ -1,11 +1,11 @@
 <template>
   <div>
     <h2 class="font-semibold uppercase text-primaryDark my-4">Create a new account</h2>
-<pre>
+<!-- <pre>
   {{errors}}
-</pre>
+</pre> -->
     <form action="#" @submit.prevent="handleSubmit" class="mt-6">
-      <h3>{{ form.username }}</h3>
+      <!-- <h3>{{ form.username }}</h3> -->
       <form-input
         label="User Name"
         :helperText="errorMsg('username')"
@@ -73,11 +73,22 @@ export default {
           const res = await this.$axios.$post('/api/auth/register', this.form);
           this.loading = false;
 
+          // toast massage show
+
+          this.$store.commit("toast/fire", {
+            text: "Successfully created a new account. please check your email to verify your account.",
+          });
+
           this.$router.push("/");
 
           console.log(res);
 
         } catch (e) {
+
+          this.$store.commit("toast/fire", {
+            text: e.response.data.message,
+            type: "error"
+          });
 
           this.errors = e.response.data?.errors || {};
           this.loading = false;

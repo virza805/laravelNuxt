@@ -6,11 +6,16 @@
   }
 
   &__logo {
-    background-image: url("~static/images/logos.png");
-    background-position: 0px -1323px;
+    // background-image: url("~static/images/logos.png");
+    // background-position: 0px -1323px;
+    background-image: url("~static/images/logo.png");
+    background-position: center;
     background-repeat: no-repeat;
-    height: 40px;
-    width: 120px;
+    // height: 40px;
+    // width: 120px;
+    height: 60px;
+    width: 160px;
+    background-size: contain;
     display: inline-block;
     margin-bottom: 5px;
   }
