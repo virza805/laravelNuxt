@@ -11,7 +11,18 @@
 <script>
 export default {
     name: "IndexPage",
+    head: {
+      title: "Home",
+    },
     // layout: "full-width",
     // components: { Navbar }
+    mounted() {
+      if(this.$route.query.verified) {
+        this.$store.commit("toast/fire", {
+          text: "your email address has been verified.",
+          type: "success"
+        });l
+      }
+    },
 }
 </script>

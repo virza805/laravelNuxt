@@ -1,9 +1,11 @@
 <template>
   <div>
-    <widgets-login />
+    <widgets-login v-if="!$auth.loggedIn" />
 
-    <div>
-      <nuxt-link class="mb-4 submitter-button" to="/new">
+    <widgets-email-verification-status  v-if="$auth.loggedIn && !$auth.user.email_verified" />
+
+    <div  v-if="$auth.loggedIn">
+      <nuxt-link class="mb-4 submitter-button" to="/threads/new">
         <span>Submit now</span>
         <div class="nub"></div>
       </nuxt-link>

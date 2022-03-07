@@ -9,12 +9,12 @@
 
       <div class="navbar__user-menu" v-if="$auth.loggedIn">
         Howdy
-        <a class="font-bold" href="#"> /{{ $auth.user.username }} </a>
-        <a class="text-xs text-gray-700" href="#">
+        <nuxt-link class="font-bold" to="#"> /{{ $auth.user.username }} </nuxt-link>
+        <nuxt-link  class="text-xs text-gray-700" to="/settings">
           (settings)
-        </a>
+        </nuxt-link>
         <span class="font-thin">|</span>
-        <a href="#" to="/notifications"> Notifications (14) </a>
+        <nuxt-link to="/notifications"> Notifications (14) </nuxt-link>
         <span class="font-thin">|</span>
         <button @click="handleLogout()" class="cursor-pointer link">Logout</button>
       </div>

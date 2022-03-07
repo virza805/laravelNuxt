@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="font-semibold uppercase text-primaryDark my-4">Login to your account</h2>
-
+<a href=""></a>
     <form action="#" @submit.prevent="handleSubmit" class="mt-6">
 
       <form-input
@@ -34,6 +34,7 @@ export default {
       title: "Login",
     },
     mixins: [form],
+    middleware: "guest",
     data() {
       return {
         form: {
@@ -50,6 +51,7 @@ export default {
 
         try {
 
+        this.errors = {};
           this.loading = true;
           await  this.$auth.loginWith("local", { data: this.form });
           this.loading = false;

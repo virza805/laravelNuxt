@@ -51,6 +51,7 @@ export default {
       title: "Signup",
     },
     mixins: [form],
+    middleware: "guest",
     data() {
       return {
         form: {
@@ -69,6 +70,7 @@ export default {
 
         try {
 
+        this.errors = {};
           this.loading = true;
           const res = await this.$axios.$post('/api/auth/register', this.form);
           this.loading = false;
