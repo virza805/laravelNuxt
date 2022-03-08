@@ -1,4 +1,13 @@
 <?php 
+
+/*
+https://github.com/kingRayhan/laranuxt-reddit-clone/tree/ep36
+
+https://github.com/kingRayhan/reddit-final-client/tree/main
+*/
+
+
+
 # https://github.com/kingRayhan/laranuxt-reddit-clone/blob/ep13/api/app/Rules/ConfirmOldPassword.php
 
 
