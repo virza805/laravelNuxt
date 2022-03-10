@@ -1,4 +1,11 @@
 <?php 
+// npm run dev
+// php artisan serve
+
+
+
+
+
 # https://github.com/kingRayhan/laranuxt-reddit-clone/blob/ep13/api/app/Rules/ConfirmOldPassword.php
 
 
@@ -6,7 +13,7 @@
 # My API => https://documenter.getpostman.com/view/18110748/UVktqtgg#dfdddc35-cd8d-4394-8010-8636d2b50197
 
 
-
+// npm run dev
 // php artisan serve => run for || laragon.org -> for test link
 # laravel new api
 # cd api
