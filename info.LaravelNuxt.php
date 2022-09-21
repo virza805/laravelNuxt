@@ -4,6 +4,13 @@
 https://github.com/kingRayhan/laranuxt-reddit-clone/tree/ep36
 
 https://github.com/kingRayhan/reddit-final-client/tree/main
+
+npm run serve
+php artisan serve
+
+npm run dev 
+npm install
+
 */
 
 
@@ -130,6 +137,8 @@ npm install @nuxtjs/axios
 #  => 
 #  => 
 #  => 
-#  => 
+#  => https://www.youtube.com/watch?v=S6McGewJ2Mw&list=PL03GdZZs-POVHXjxjyKegmsvOiQVXpb7O&index=36
+
+
 
 
