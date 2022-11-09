@@ -16,13 +16,30 @@ composer create-project laravel/laravel:^8.0 backendLaravel
 
 
 ============ >>>> = Frontend || Client Site vueNuxt (npm run dev) = <<<<============
+{
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+
+      library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.12.1
+}
+
+export NODE_OPTIONS=--openssl-legacy-provider => https://github.com/webpack/webpack/issues/14532
 
 
+https://github.com/riad-khan/IMS-Software-with-laravel-Vue.js-and-Rest-Api/blob/master/app/Http/Controllers/api/ProductsController.php
 
+https://github.com/riad-khan/IMS-Software-with-laravel-Vue.js-and-Rest-Api/blob/master/resources/js/components/products/add-products.vue
 
-
-
-
+php artisan storage:link
 
 
 

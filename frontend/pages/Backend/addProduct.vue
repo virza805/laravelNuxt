@@ -61,7 +61,13 @@
             :helperText="errorMsg('image')"
             :hasError="hasError('image')"
             placeholder="image"
+            @change="onFileSelected"
           />
+
+<!-- <input type="file" class="custom-file-input" id="customFile" @change="onFileSelected" required>
+<label class="custom-file-label" for="customFile">Choose file</label> -->
+
+
           <form-input
 
             label="price"
@@ -129,7 +135,7 @@ export default {
           tag: "",
           price: "",
           sell_price: "",
-          image: "",
+          image: null
         },
         cat_list: {},
         errors: {},
@@ -143,6 +149,20 @@ export default {
 
 
     methods: {
+      onFileSelected(event){
+        let file = event.target.files[0];
+
+        if(file.size > 1048770){
+            Notification.image_validation()
+          }else{
+            let reader = new FileReader();
+            reader.onload = event =>{
+              this.form.image = event.target.result
+            };
+            reader.readAsDataURL(file);
+        }
+      },
+
       // From submit async await
      async handleSubmit() {
         // api call
