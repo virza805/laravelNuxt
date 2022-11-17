@@ -15,7 +15,7 @@ composer create-project laravel/laravel:^8.0 backendLaravel
     }php artisan passport:keys => if download github file then run this || php artisan passport:client --personal
 
 
-============ >>>> = Frontend || Client Site vueNuxt (npm run dev) = <<<<============
+============ >>>> = Frontend || Client Site vueNuxt (npm run dev) || (export NODE_OPTIONS=--openssl-legacy-provider) = <<<<============
 {
 node:internal/crypto/hash:71
   this[kHandle] = new _Hash(algorithm, xofLen);

@@ -9,8 +9,13 @@
 
         <div class="flex flex-wrap">
           <div class="w-1/2 px-8">
-            <!-- <img :src="product.image" /> -->
-            <img class="h-48 w-full object-cover md:h-full md:w-48" src="~/assets/img/Thanks.jpg" alt="Man looking at item at a store">
+            
+            <img v-if="product_details.image" class="w-full object-cover" :src="'http://127.0.0.1:8000/storage/uploads/' + product_details.image" :alt="product_details.image">
+
+            <img v-else class="w-full object-cover" src="~/assets/img/Thanks.jpg" alt="item">
+
+            <!-- <img :src="baseURL + '/storage/uploads/' + product_details.image" :alt="product_details.image" width="70px" height="70px"> -->
+
           </div>
           <div class="w-1/2 px-8">
             <p class="text-sm mb-3"><span class="uppercase text-gray-400 pr-6">Status</span> <span

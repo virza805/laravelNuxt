@@ -57,6 +57,7 @@
           <form-input
             type="file"
             label="image"
+            name="image"
             v-model="form.image"
             :helperText="errorMsg('image')"
             :hasError="hasError('image')"
