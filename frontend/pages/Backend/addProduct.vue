@@ -11,6 +11,8 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <!-- <img class="mx-auto h-12 w-auto" src="~/assets/img/virzaOk.gif" alt="Workflow" /> -->
+        
+        <!-- <input type="hidden" name="remember" value="true" /> -->
         <Tanvir />
         <h2 class="mt-6 text-center text-3xl font-extrabold text-yellow-600">Add Product Data</h2>
 
@@ -21,9 +23,9 @@
       @submit.prevent="handleSubmit"
       method="POST"
       enctype="multipart/form-data"
+      id="product_form"
       >
 
-        <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <form-input
 
@@ -32,6 +34,7 @@
             :helperText="errorMsg('name')"
             :hasError="hasError('name')"
             placeholder="name"
+            name="name"
           />
           <!-- <form-input
             label="category_id"
@@ -43,7 +46,7 @@
           <label for="cars">Choose a Category</label>
           <select
           v-model="form.category_id"
-          name="cars" id="cars" form="carform"
+          name="category_id" id="cars"
           class="input"
           >
             <option v-for="cat in cat_list " :key="cat.id" :value="cat.id">{{ cat.name }} ({{ cat.id }})</option>
@@ -62,7 +65,6 @@
             :helperText="errorMsg('image')"
             :hasError="hasError('image')"
             placeholder="image"
-            @change="onFileSelected"
           />
 
 <!-- <input type="file" class="custom-file-input" id="customFile" @change="onFileSelected" required>
@@ -76,6 +78,7 @@
             :helperText="errorMsg('price')"
             :hasError="hasError('price')"
             placeholder="Enter price text"
+            name="price"
           />
           <form-input
 
@@ -84,6 +87,7 @@
             :helperText="errorMsg('sell_price')"
             :hasError="hasError('sell_price')"
             placeholder="Enter sell_price text"
+            name="sell_price"
           />
           <form-input
             label="Product Tag"
@@ -91,6 +95,7 @@
             :helperText="errorMsg('tag')"
             :hasError="hasError('tag')"
             placeholder="Enter Product Tag"
+            name="tag"
           />
           <form-textarea
 
@@ -101,6 +106,7 @@
             placeholder="Enter text here..."
             rows="4"
             cols="20"
+            name="description"
           ></form-textarea>
         </div>
 
@@ -150,26 +156,30 @@ export default {
 
 
     methods: {
-      onFileSelected(event){
-        let file = event.target.files[0];
+      // onFileSelected(event){
+      //   let file = event.target.files[0];
 
-        if(file.size > 1048770){
-            Notification.image_validation()
-          }else{
-            let reader = new FileReader();
-            reader.onload = event =>{
-              this.form.image = event.target.result
-            };
-            reader.readAsDataURL(file);
-        }
-      },
+      //   if(file.size > 1048770){
+      //       Notification.image_validation()
+      //     }else{
+      //       let reader = new FileReader();
+      //       reader.onload = event =>{
+      //         this.form.image = event.target.result
+      //       };
+      //       reader.readAsDataURL(file);
+      //   }
+      // },
 
       // From submit async await
      async handleSubmit() {
+      
+      let form_data = new FormData(document.getElementById("product_form"));
+console.log(form_data);
         // api call
         try {
           this.loading = true;
-          const res = await this.$axios.$post('/api/user/product/store', this.form)
+          const res = await this.$axios.$post('/api/user/product/store', form_data)
+          // const res = await this.$axios.$post('/api/user/product/store', this.form)
 
           console.log(res);
           this.loading = false;

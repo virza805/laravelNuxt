@@ -9,8 +9,18 @@ class Categories extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function products(): HasMany
+
+    public function products()
     {
-        return $this->hasMany(Product::class, 'category_id', 'id');
+        return $this->hasMany(Product::class, 'category_id');
     }
+
+    // public function product() {
+    //     return $this->hasOne(Product::class, 'category_id');
+    // }
+
+    // public function comments() {
+    //     return $this->hasMany(Comment::class);
+    // }
+
 }

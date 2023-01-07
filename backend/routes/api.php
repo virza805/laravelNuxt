@@ -71,6 +71,8 @@ Route::group(['prefix' => '/user', 'middleware'=>['auth:api'], 'namespace' => 'A
 Route::group(['prefix' => '/all' ], function() {
 
     Route::get('/client-categories', [CategoriesController::class, 'frontendShow']); // Read Categories data in frontend
+    Route::get('/get-cat-p/{id}', [CategoriesController::class, 'cat_product']);  // Read current user Categories data
+
     Route::get('/client-product', [ProductController::class, 'frontendShow']); // Read all product data in frontend
     Route::get('/client-cat-product/{id}', [ProductController::class, 'frontendShowCatP']); // Read Categories ways product data Show in frontend
     Route::get('/client-product-detail/{id}', [ProductController::class, 'get']);  // Read current user Categories data

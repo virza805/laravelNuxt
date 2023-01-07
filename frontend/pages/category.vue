@@ -10,7 +10,7 @@
         </div>
 
         <div class="md:flex-row flex-col justify-between items-center mb-8">
-          <h3 class="md:text-left text-center text-3xl mb-2">You select Category id = {{ this.categoryId }} </h3>
+          <h3 class="md:text-left text-center text-3xl mb-2">You select Category = {{ categoryName }} ({{ this.categoryId }}) </h3>
           <!-- <div class="min-w-max flex items-center">
             <div class="text-sm mr-6"><b>20</b> Products Found</div>
             <select name="" id="">
@@ -29,7 +29,8 @@
             <div class="single-bs-product">
               <div class="h-80  relative mb-6">
                 <div class="h-full bg-gray-50 flex justify-center items-center p-4">
-                  <img class="mx-auto w-auto" src="~/assets/img/carousel-img-1.png" alt="Workflow" />
+                  <img v-if="product.image" class="w-full object-cover" :src="'http://127.0.0.1:8000/storage/uploads/' + product.image" :alt="product.image">
+                  <img v-else class="mx-auto w-auto" src="~/assets/img/carousel-img-1.png" alt="Workflow" />
                 </div>
 
                 <div class="product-img-hover absolute h-full w-full top-0 left-0 flex justify-center items-center">
@@ -43,6 +44,7 @@
               </div>
 
               <h4 class="text-xl mb-3">{{ product.name }}</h4>
+              <h5 class="text-xs mb-3">{{ product.category.name }}</h5>
               <p><span class="font-medium bs-dark-orange-color">$ {{ product.price }} </span> <del
                   class="text-gray-400">${{ product.sell_price }}</del></p>
 
@@ -79,6 +81,7 @@
         per_page: 0,
         total: 0,
         categoryId: "",
+        categoryName: "",
       }
     },
 
@@ -100,9 +103,17 @@
         this.per_page = r.data.per_page;
         this.load = false;
 
+        let categoryData = await this.$axios.$get('/api/all/get-cat-p/'+categoryId)
+
+         this.categoryName = categoryData[0]['name'];
+        // console.log(categoryName);
+
         this.categoryId = categoryId;
 
       },
+      getCatName(){
+
+      }
     },
     watch: {
       '$route.query': '$fetch'

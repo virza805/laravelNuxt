@@ -86,7 +86,10 @@
                   <td class="table-td pl-2">{{ slid.name }}</td>
                   <td class="table-td py-1 border-l border-green-200 px-2 ">{{ slid.slug }}</td>
 
-                  <td class="table-td"><img src="~/assets/img/vegetable-collection.png" alt="Phone" width="70"></td>
+                  <td class="table-td">
+                    <img v-if="slid.image" :src="'http://127.0.0.1:8000/storage/uploads/' + slid.image" :alt="slid.image" width="70">
+                    <img v-else src="~/assets/img/vegetable-collection.png" alt="Phone" width="70">
+                  </td>
                   <td>
                     <div class="flex my-1 lg:justify-between px-2">
                       <p v-if="slid.use"  class="bg-green-600 py-1 px-2 rounded text-center text-yellow-50 ">☻buyGet</p>

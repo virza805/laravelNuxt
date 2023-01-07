@@ -115,7 +115,7 @@ class ProductController extends Controller
                     ->paginate(4);
             }
         }else{
-            $product_data = Product::where('status', 1)->orderBy('id', 'DESC')->paginate(4);
+            $product_data = Product::where('status', 1)->orderBy('id', 'DESC')->with('category')->paginate(4);
         }
 
         // $stock = 1;
@@ -135,7 +135,9 @@ class ProductController extends Controller
      */
     public function frontendShowCatP($id)
     {
-        $product_data = Product::where('category_id', $id)->orderBy('id', 'DESC')->paginate(3); // Show only last data
+        
+        $product_data = Product::where('category_id', $id)->orderBy('id', 'DESC')->with('category')->paginate(3); // Show only last data
+        // $product_data = Product::where('category_id', $id)->orderBy('id', 'DESC')->with('category')->get(); // Show only last data ->category()
 
         return response()->json([
             'err_message' => 'Show product data',

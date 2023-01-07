@@ -99,6 +99,7 @@ class CategoriesController extends Controller
     public function get($id)
     {
         $book = Categories::find($id);
+        // $book = Categories::find($id)->with('products')->get();
 
         return response()->json($book, 200);
     }
@@ -166,6 +167,30 @@ class CategoriesController extends Controller
         $book->delete();
         return response()->json('Deleted Done', 200);
     }
+
+
+
+
+
+    
+    /**
+     * Display catagory with product details data  from the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cat_product($id)
+    {
+        // $book = Categories::find($id);
+        $book = Categories::where('id', $id)->with('products')->get();
+        // $book = Categories::where('id', $id)->with('products')->paginate(3);
+
+        // return $book;
+        return response()->json($book, 200);
+    }
+
+
+
+
 
 
 }

@@ -5,7 +5,7 @@
       <div v-for="cat in cat_slider_list" :key="cat.id" class="bg-gray-200 p-4 m-1 ">
         <nuxt-link :to="`/category/?id=${cat.id}`" class=" text-center">
           <div class="h-32 flex justify-center items-center">
-            <img v-if="cat.image" :src="'http://127.0.0.1:8000/storage/uploads/' + cat.image" :alt="cat.image"> 
+            <img v-if="cat.image" :src="'http://127.0.0.1:8000/storage/uploads/' + cat.image" :alt="cat.image" class="w-24"> 
             <img v-else src="~/assets/img/carousel-img-2.png" alt=""> 
           </div>
           <h4 class="text-xl">{{ cat.name }}</h4>
@@ -55,6 +55,7 @@
           </div>
 
           <h4 class="text-xl mb-3">{{ product.name }}</h4>
+              <h5 class="text-xs mb-3">{{ product.category.name }}</h5>
           <p><span class="font-medium bs-dark-orange-color">$ {{ product.price }} </span> <del
               class="text-gray-400">${{ product.sell_price }}</del></p>
 

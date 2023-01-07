@@ -16,13 +16,14 @@
 
       </div>
       <form
+      id="book_form"
       class="mt-8 space-y-6"
       action="#"
        @submit.prevent="handleSubmit"
       method="POST"
       enctype="multipart/form-data"
       >
-        <input type="hidden" name="remember" value="true" />
+        <!-- <input type="hidden" name="remember" value="true" /> -->
         <div class="rounded-md shadow-sm -space-y-px">
           <form-input
 
@@ -31,6 +32,7 @@
             :helperText="errorMsg('name')"
             :hasError="hasError('name')"
             placeholder="name"
+            name="name"
           />
           <form-input
 
@@ -39,6 +41,7 @@
             :helperText="errorMsg('slug')"
             :hasError="hasError('slug')"
             placeholder="0 or other"
+            name="slug"
           />
 
           <form-input
@@ -48,6 +51,7 @@
             :helperText="errorMsg('image')"
             :hasError="hasError('image')"
             placeholder="image"
+            name="image"
           />
 
         </div>
@@ -91,10 +95,14 @@ export default {
     methods: {
       // From slugmit async await
      async handleSubmit() {
+
+      let form_data = new FormData(document.getElementById("book_form"));
+
         // api call
         try {
           this.loading = true;
-          const res = await this.$axios.$post('/api/user/cat/store', this.form)
+          const res = await this.$axios.$post('/api/user/cat/store', form_data)
+          // const res = await this.$axios.$post('/api/user/cat/store', this.form)
           this.loading = false;
 
           // toast massage show
