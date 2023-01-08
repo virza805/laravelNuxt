@@ -66,6 +66,20 @@
     <div class="text-center mb-10">
       <pagination v-model="page" :records="total" :per-page="per_page" @paginate="getProductData"></pagination>
     </div>
+
+    <h3 class="text-xl md:text-4xl mb-6">Show Category with product by one to many relationship </h3>
+    <div class="cat_wrap flex-wrap flex my-3">
+      <div v-for="cat in cat_slider_list" :key="cat.id" class="bg-gray-200 p-4 m-1 ">
+        <nuxt-link :to="`/cat/?id=${cat.id}`" class=" text-center">
+          <div class="h-32 flex justify-center items-center">
+            <img v-if="cat.image" :src="'http://127.0.0.1:8000/storage/uploads/' + cat.image" :alt="cat.image" class="w-24"> 
+            <img v-else src="~/assets/img/carousel-img-2.png" alt=""> 
+          </div>
+          <h4 class="text-xl">{{ cat.name }}</h4>
+        </nuxt-link>
+      </div>
+    </div>
+
   </div>
 </template>
 
