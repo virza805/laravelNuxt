@@ -35,10 +35,6 @@ Node.js v18.12.1
 export NODE_OPTIONS=--openssl-legacy-provider => https://github.com/webpack/webpack/issues/14532
 
 
-https://github.com/riad-khan/IMS-Software-with-laravel-Vue.js-and-Rest-Api/blob/master/app/Http/Controllers/api/ProductsController.php
-
-https://github.com/riad-khan/IMS-Software-with-laravel-Vue.js-and-Rest-Api/blob/master/resources/js/components/products/add-products.vue
-
 php artisan storage:link
 
 
